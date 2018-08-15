@@ -1,12 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-event-item',
     templateUrl: './event-item.component.html'
 })
 export class EventItemComponent implements OnInit {
-    @Input() event;
+    @Input()
+    event: any;
+    @Output()
+    eventClick = new EventEmitter();
     constructor() { }
 
+    handleClickMe() {
+        this.eventClick.emit('from-child ' + this.event.name);
+        console.log('clicked');
+    }
     ngOnInit(): void { }
 }

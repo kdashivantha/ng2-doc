@@ -14,5 +14,8 @@ export class EventsListComponent implements OnInit {
         this.eventModel =  new Event(2, 'amith');
      }
 
+     handleChildEventClicked(data) {
+         console.log('received', data);
+     }
     ngOnInit(): void { }
 }
