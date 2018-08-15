@@ -2,7 +2,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-event-item',
-    templateUrl: './event-item.component.html'
+    templateUrl: './event-item.component.html',
+    styles: [
+        `
+        .some-bold {font-weight:bold;}
+        `
+    ]
 })
 export class EventItemComponent implements OnInit {
     @Input()
