@@ -9,3 +9,7 @@
         Invole Child methods from Parent
     </button>
 </div>
+<div>
+    <h2>Events List</h2>
+    <app-event-item *ngFor="let event of events" [event]="event" (eventClick)="handleChildEventClicked($event)"></app-event-item>
+</div>
