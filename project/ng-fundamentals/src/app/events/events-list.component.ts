@@ -8,10 +8,10 @@ import {Event} from '../models/event.model';
     // styles: [``]
 })
 export class EventsListComponent implements OnInit {
-    event: Event;
+    eventModel: Event;
     constructor() {
 
-        this.event =  new Event(2, 'amith');
+        this.eventModel =  new Event(2, 'amith');
      }
 
     ngOnInit(): void { }
