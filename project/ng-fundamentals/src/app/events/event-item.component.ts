@@ -15,5 +15,9 @@ export class EventItemComponent implements OnInit {
         this.eventClick.emit('from-child ' + this.event.name);
         console.log('clicked');
     }
+
+    logFooFromParent() {
+        console.log('foo from parent');
+    }
     ngOnInit(): void { }
 }
