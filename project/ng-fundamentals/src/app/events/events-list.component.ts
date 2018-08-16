@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Event} from '../models/event.model';
 import { EventService } from './shared/events.service';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from '../shared/event.model';
 
 @Component({
     selector: 'app-events-list',
@@ -15,7 +16,7 @@ export class EventsListComponent implements OnInit {
         this.eventModel =  new Event(2, 'amith');
      }
 
-    events: any;
+    events: IEvent[];
 
     handleChildEventClicked(data) {
          console.log('received', data);

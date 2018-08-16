@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from '../shared/toastr.service';
+import { IEvent } from '../shared/event.model';
 
 @Component({
     selector: 'app-event-item',
@@ -14,7 +15,7 @@ import { ToastrService } from '../shared/toastr.service';
 })
 export class EventItemComponent implements OnInit {
     @Input()
-    event: any;
+    event: IEvent;
     @Output()
     eventClick = new EventEmitter();
 
