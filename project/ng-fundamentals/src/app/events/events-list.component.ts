@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Event} from '../models/event.model';
 import { EventService } from './shared/events.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-events-list',
@@ -10,11 +11,11 @@ import { EventService } from './shared/events.service';
 })
 export class EventsListComponent implements OnInit {
     eventModel: Event;
-    constructor(private eventService: EventService) {
+    constructor(private eventService: EventService, private route: ActivatedRoute) {
         this.eventModel =  new Event(2, 'amith');
      }
 
-    events: any[];
+    events: any;
 
     handleChildEventClicked(data) {
          console.log('received', data);
@@ -22,6 +23,8 @@ export class EventsListComponent implements OnInit {
 
 
     ngOnInit(): void {
-      this.events = this.eventService.getEvents();
+      // this.events = this.eventService.getEvents();
+      // this.eventService.getEvents().subscribe(events => { this.events = events; });
+      this.events =  this.route.snapshot.data['events'];
      }
 }
