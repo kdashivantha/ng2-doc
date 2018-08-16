@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { EventsListComponent } from './events/events-list.component';
 import { EventDetailComponent } from './events/event-details/event-details.component';
 import { EventCreateComponent } from './events/event-create.component';
+import { Error404Component } from './errors/404.component';
+import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 
 
 // import { PageNotFoundComponent } from './';
@@ -11,7 +13,8 @@ import { EventCreateComponent } from './events/event-create.component';
 export const routes: Routes = [
     { path: 'events', component: EventsListComponent },
     { path: 'events/new', component: EventCreateComponent },
-    { path: 'events/:id', component: EventDetailComponent },
+    { path: 'events/:id', component: EventDetailComponent, canActivate: [EventRouteActivator] },
+    { path: '404', component: Error404Component },
     { path: '**', redirectTo: '/events', pathMatch: 'full'}
 
     // { path: 'path/:routeParam', component: MyComponent },
