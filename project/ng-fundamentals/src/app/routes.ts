@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { EventsListComponent } from './events/events-list.component';
 import { EventDetailComponent } from './events/event-details/event-details.component';
+import { EventCreateComponent } from './events/event-create.component';
 
 
 // import { PageNotFoundComponent } from './';
 
 export const routes: Routes = [
     { path: 'events', component: EventsListComponent },
+    { path: 'events/new', component: EventCreateComponent },
     { path: 'events/:id', component: EventDetailComponent },
     { path: '**', redirectTo: '/events', pathMatch: 'full'}
 
