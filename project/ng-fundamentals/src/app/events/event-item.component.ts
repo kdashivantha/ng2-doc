@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from '../shared/toastr.service';
 
 @Component({
     selector: 'app-event-item',
@@ -16,11 +17,16 @@ export class EventItemComponent implements OnInit {
     event: any;
     @Output()
     eventClick = new EventEmitter();
-    constructor() { }
+
+    constructor(private toastr: ToastrService) { }
 
     handleClickMe() {
         this.eventClick.emit('from-child ' + this.event.name);
         console.log('clicked');
+    }
+
+    handleclickToastr(name) {
+        this.toastr.success(name);
     }
 
     logFooFromParent() {
@@ -39,7 +45,9 @@ export class EventItemComponent implements OnInit {
         //     return '';
         // }
     }
-
+    /**
+     * @returns any
+     */
     getStartTimeCSSStyle(): any {
         if (this.event && this.event.time === '8:00 am') {
             return {color: '#003300', 'font-size': '18px'};

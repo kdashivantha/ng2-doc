@@ -1,4 +1,4 @@
-<div class="well hoverwell thumbnail">
+<div class="well hoverwell thumbnail"  (click)="handleclickToastr(event.name)">
     <div>{{event.name}}</div>
     <div>{{event.date}}</div>
     <div class= "statis-class" [ngClass]="getStartTimeCSS()" [ngStyle]="getStartTimeCSSStyle()">{{event.time}}</div>
