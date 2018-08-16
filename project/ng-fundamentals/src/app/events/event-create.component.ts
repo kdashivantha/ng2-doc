@@ -20,6 +20,8 @@ import { Router } from '@angular/router';
     `
 })
 export class EventCreateComponent implements OnInit {
+    // tslint:disable-next-line:no-inferrable-types
+    isDirty: boolean = true;
     constructor(private route: Router) { }
 
     ngOnInit(): void { }
