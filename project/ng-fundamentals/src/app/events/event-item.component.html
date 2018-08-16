@@ -1,7 +1,7 @@
 <div class="well hoverwell thumbnail">
     <div>{{event.name}}</div>
     <div>{{event.date}}</div>
-    <div>{{event.time}}</div>
+    <div class= "statis-class" [ngClass]="getStartTimeCSS()">{{event.time}}</div>
     <div class="some-bold">${{event.price}}</div>
     <button class="btn btn-primary" (click)="handleClickMe()">click Me!</button>
 
