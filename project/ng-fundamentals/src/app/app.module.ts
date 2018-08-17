@@ -17,6 +17,7 @@ import { EventListResolverService } from './events/events-list-resolver.service'
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { restrictedWords } from './shared/restricted-words.validator';
 
 @NgModule({
   declarations: [
