@@ -14,6 +14,7 @@ import { EventCreateComponent } from './events/event-create.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 import { EventListResolverService } from './events/events-list-resolver.service';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EventListResolverService } from './events/events-list-resolver.service'
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
