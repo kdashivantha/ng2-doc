@@ -5,11 +5,15 @@ import { Router } from '@angular/router';
 @Component({
     // selector: 'app-name',
     templateUrl: './login.component.html',
+    styles: [`
+        em { float:right; color:#E05C65; padding-left:10px; }
+    `]
     // styleUrls: ['./name.component.scss']
 })
 export class LoginComponent implements OnInit {
     userName: string;
     passowrd: string;
+    mouseoverLogin: any;
 
     constructor(private authService: AuthService, private router: Router) { }
 
