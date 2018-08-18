@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { restrictedWords } from './shared/restricted-words.validator';
 import { SessionListComponent } from './events/event-details/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SessionListComponent } from './events/event-details/session-list.compon
     NavBarComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
