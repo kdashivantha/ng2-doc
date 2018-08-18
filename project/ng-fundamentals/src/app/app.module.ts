@@ -18,6 +18,7 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { restrictedWords } from './shared/restricted-words.validator';
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { restrictedWords } from './shared/restricted-words.validator';
     EventCreateComponent,
     NavBarComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
