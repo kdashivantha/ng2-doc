@@ -21,7 +21,9 @@ import { restrictedWords } from './shared/restricted-words.validator';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './shared/duration.pipe';
+import { TOASTR_TOKEN, Toastr } from './shared/toastr2.service';
 
+declare let toastr: Toastr;
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,10 @@ import { DurationPipe } from './shared/duration.pipe';
   providers: [
     EventService,
     ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventRouteActivator,
     EventListResolverService,
     {
