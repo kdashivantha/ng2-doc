@@ -27,6 +27,7 @@ import { SimpleModalComponent } from './common/simple-model.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { VoterService } from './events/event-details/voter.service';
+import { LocationValidator } from './events/location-validator.directive';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -46,7 +47,8 @@ let jQuery = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
-    DurationPipe
+    DurationPipe,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
