@@ -1,0 +1,20 @@
+// https://stackoverflow.com/questions/36064303/what-are-the-differences-between-observables-and-promises-in-javascript
+
+Promises offer a very simplistic call back mechanism, where as Rx offers a powerful abstraction over asynchronous programming. An Observable represents a stream of data, which we can then apply operators to in order to define how the incoming data should be treated.
+If all you need to do is make an HTTP request and then update a UI component, then using a Promise might suffice.
+However, most apps tend to have more complicated needs than that (even if it’s not obvious at the first). Taking our HTTP request for example, let’s see how modelling this as an Observable and using some of the Rx operators can help us:
+-If the HTTP request is triggered by a user action, we might want to be wary of firing off multiple HTTP requests (imagine a user typing into a search box). We don’t want to fire a request for every keystroke, so we might want to Throttle our search, so that we only fire a request if the user stops typing for 300ms. Furthermore, if user types a word, waits 300ms, and adds another character, we’ll fire off a subsequent HTTP request. With Promises, we’d probably encounter a race condition as we can’t control the order in which we’ll receive the responses and we can’t cancel old requests. Rx solves this by allowing us to Switch between streams, which calls Dispose on the old request subscriptions we no longer care about. We might also filter out any invalid search inputs, for instance Where the search term is less than 3 characters in length.
+-Support for dealing with Timeouts/Error handling. Let’s say our HTTP request fails, Rx allows us to easily Retry making the request.
+-Let’s say several parts of our application need to make the same HTTP call, we probably don’t want to actually make the call more than once. We can expose our observable to multiple consumers and use Replay to ensure the call is made once and the result is cached for subsequent subscribers. We can even supply a TimeSpan to Replay, giving us expiring cache behaviour.
+-Powerful abstraction over threading through the use of Schedulers, which allows us to control concurrency. Even better, we can use Test Schedulers in our Unit Tests to control time, allowing us to simulate Timeouts, race conditions etc.
+These are some quick examples to demonstrate what is possible. There are many more operators within the Rx framework to cater for all types of scenarios and the composability of Rx means you can easily combine operators to define the behaviour you need. It’s also easy to create your own reusable operators (e.g. RetryAfterDelay).
+In summary, Rx can do everything than Promises can do, and far far more. I suspect in the next couple of years there'll be a continued shift towards Rx instead of Promises. 
+For further reading, I'd recommend taking a look at the section on Observables in the Angular 2 guide.
+
+
+
+Converting to a Promise is often a good choice when you want to fetch a single chunk of data. so When you receive the data, you're done.
+But in some cases requests aren't always done only once. You may start one request, cancel it, and make a different request before the server has responded to the first request.
+for example in a search component As the user types a name into a search box, you'll make repeated HTTP requests by that search query.
+A request-cancel-new-request sequence is difficult to implement with Promises, but easy with Observables.
+so if your component gets data with only one request it's a good choice to use Promise but if it has a chain of request-cancel-new request you should use observable
