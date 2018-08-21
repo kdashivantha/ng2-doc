@@ -8,11 +8,13 @@ import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 import { EventListResolverService } from './events/events-list-resolver.service';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { EventResolverService } from './events/event.resolver.service';
 
 export const routes: Routes = [
     { path: 'events', component: EventsListComponent, resolve: {events: EventListResolverService} },
     { path: 'events/new', component: EventCreateComponent, canDeactivate: ['canDeactivateCreateEvent'] },
-    { path: 'events/:id', component: EventDetailComponent, canActivate: [EventRouteActivator] },
+    { path: 'events/:id', component: EventDetailComponent, resolve: { event: EventResolverService} },
+    // canActivate: [EventRouteActivator] },
     { path: 'events/session/new', component: CreateSessionComponent},
     { path: '404', component: Error404Component },
     { path: 'user', loadChildren: './user/user.module#UserModule'},

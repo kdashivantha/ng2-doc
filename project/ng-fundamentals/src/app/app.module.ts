@@ -29,6 +29,7 @@ import { UpvoteComponent } from './events/event-details/upvote.component';
 import { VoterService } from './events/event-details/voter.service';
 import { LocationValidator } from './events/location-validator.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { EventResolverService } from './events/event.resolver.service';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -76,6 +77,7 @@ let jQuery = window['$'];
     },
     // EventRouteActivator,
     EventListResolverService,
+    EventResolverService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
