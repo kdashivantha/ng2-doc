@@ -4,7 +4,7 @@ import { AuthService } from './user/auth.service';
 @Component({
   selector: 'app-events-app',
   template: `
-  <app-navbar></app-navbar>
+  <navbar></navbar>
   <router-outlet></router-outlet>
   `
 })
@@ -12,6 +12,7 @@ import { AuthService } from './user/auth.service';
 // <app-events-list></app-events-list>
 
 export class AppComponent implements OnInit {
+  title: string;
 
   ngOnInit(): void {
     this.auth.checkAuthenticationStatus();

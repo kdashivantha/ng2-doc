@@ -4,7 +4,7 @@ import { ISession } from '../shared/event.model';
 import { EventService } from '../events/shared/events.service';
 
 @Component({
-    selector: 'app-navbar',
+    selector: 'navbar',
     templateUrl: './navbar.component.html',
     styles: [`
     .nav.navbar-nav {font-size:15px;}
