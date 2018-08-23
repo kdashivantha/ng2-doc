@@ -50,10 +50,15 @@ export class ProfileComponent implements OnInit {
         .subscribe( () => {
             this.toastr.success('Profile Saved');
         });
-        
-        this.router.navigate(['events']);
+        // this.router.navigate(['events']);
     }
 
+    logout() {
+        this.auth.logout()
+        .subscribe(() => {
+            this.router.navigate(['/user/login']);
+        });
+    }
     cancel() {
         this.router.navigate(['events']);
     }
