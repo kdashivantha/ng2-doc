@@ -8,7 +8,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { EventService } from './events/shared/events.service';
 import { ToastrService } from './shared/toastr.service';
 import { EventDetailComponent } from './events/event-details/event-details.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { routes } from './routes';
 import { EventCreateComponent } from './events/event-create.component';
 import { Error404Component } from './errors/404.component';
@@ -56,7 +56,7 @@ let jQuery = window['$'];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     HttpClientModule
   ],
   providers: [
